@@ -88,12 +88,12 @@ plt.savefig("visuals/cnf_matrix.png",
 ### 1. Using the confusion matrix up above, calculate precision, recall, and F-1 score.
 
 
-```
+```python
 # // your code here //
 ```
 
 
-```
+```python
 # __SOLUTION__ 
 precision = 30/(30+4)
 recall = 30 / (30 + 12)
@@ -112,12 +112,12 @@ print("F1: {}".format(F1))
 ### 2.  What is a real life example of when you would care more about recall than precision? Make sure to include information about errors in your explanation.
 
 
-```
+```python
 # Your answer here
 ```
 
 
-```
+```python
 # __SOLUTION__
 # We would care more about recall than precision in cases where a Type II error (a False Negative) would 
 # have serious consequences. An example of this would be a medical test that determines if someone has a serious disease.
@@ -189,12 +189,12 @@ plt.savefig("visuals/many_roc.png",
 
 
 
-```
+```python
 # Your answer here
 ```
 
 
-```
+```python
 # __SOLUTION__
 # The best ROC curve in this graph is for the one that contains all features (the pink one). 
 # This is because it has the largest area under the curve. The ROC curve is created by obtaining
@@ -202,7 +202,7 @@ plt.savefig("visuals/many_roc.png",
 ```
 
 
-```
+```python
 import pandas as pd
 import itertools
 import seaborn as sns
@@ -219,7 +219,7 @@ from sklearn.preprocessing import StandardScaler
 ```
 
 
-```
+```python
 # __SOLUTION__ 
 import pandas as pd
 import itertools
@@ -244,7 +244,7 @@ pickle.dump(dropped_df, open("write_data/sample_network_data.pkl", "wb"))
 --->
 
 
-```
+```python
 network_df = pickle.load(open("write_data/sample_network_data.pkl", "rb"))
 
 # partion features and target 
@@ -276,7 +276,7 @@ print(f"The original classifier has an area under the ROC curve of {auc}.")
 ```
 
 
-```
+```python
 # __SOLUTION__ 
 network_df = pickle.load(open("write_data/sample_network_data.pkl", "rb"))
 
@@ -315,12 +315,12 @@ print(f"The original classifier has an area under the ROC curve of {auc}.")
 ### 4. The model above has an accuracy score that might be too good to believe. Using `y.value_counts()`, explain how `y` is affecting the accuracy score.
 
 
-```
+```python
 y.value_counts()
 ```
 
 
-```
+```python
 # __SOLUTION__ 
 y.value_counts()
 ```
@@ -335,12 +335,12 @@ y.value_counts()
 
 
 
-```
+```python
 # // your answer here //
 ```
 
 
-```
+```python
 # __SOLUTION__
 
 # y.value_counts() indicates that we have a class imbalance. When we have class imbalance our model only learns to
@@ -351,13 +351,13 @@ y.value_counts()
 
 
 
-```
+```python
 # // your answer here //
 
 ```
 
 
-```
+```python
 # __SOLUTION__
 
 #Any one of these is an acceptable answer : 
