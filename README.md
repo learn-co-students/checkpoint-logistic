@@ -1,7 +1,5 @@
 
----
-## Introduction to Logistic Regression [Suggested Time: 25 min]
----
+# Logistic Regression
 
 <!---
 # load data
@@ -89,14 +87,14 @@ plt.savefig("visuals/cnf_matrix.png",
 
 
 ```python
-# // your code here //
+# Your code here
 ```
 
 ### 2.  What is a real life example of when you would care more about recall than precision? Make sure to include information about errors in your explanation.
 
 
 ```python
-# Your answer here
+# Your written answer here
 ```
 
 <!---
@@ -165,7 +163,7 @@ plt.savefig("visuals/many_roc.png",
 
 
 ```python
-# Your answer here
+# Your written answer here
 ```
 
 
@@ -233,7 +231,7 @@ y.value_counts()
 
 
 ```python
-# // your answer here //
+# Your written answer here
 ```
 
 ### 5. What methods would you use to address the issues mentioned up above in question 4? 
@@ -241,6 +239,5 @@ y.value_counts()
 
 
 ```python
-# // your answer here //
-
+# Your written answer here
 ```
