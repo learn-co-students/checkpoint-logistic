@@ -1,7 +1,5 @@
 
----
-## Introduction to Logistic Regression [Suggested Time: 25 min]
----
+# Logistic Regression
 
 <!---
 # load data
