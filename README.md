@@ -1,7 +1,5 @@
 
----
-## Introduction to Logistic Regression [Suggested Time: 25 min]
----
+# Logistic Regression
 
 <!---
 # load data
@@ -89,7 +87,7 @@ plt.savefig("visuals/cnf_matrix.png",
 
 
 ```python
-# // your code here //
+# Your code here
 ```
 
 
@@ -113,7 +111,7 @@ print("F1: {}".format(F1))
 
 
 ```python
-# Your answer here
+# Your written answer here
 ```
 
 
@@ -190,7 +188,7 @@ plt.savefig("visuals/many_roc.png",
 
 
 ```python
-# Your answer here
+# Your written answer here
 ```
 
 
@@ -336,7 +334,7 @@ y.value_counts()
 
 
 ```python
-# // your answer here //
+# Your written answer here
 ```
 
 
@@ -352,8 +350,7 @@ y.value_counts()
 
 
 ```python
-# // your answer here //
-
+# Your written answer here
 ```
 
 
