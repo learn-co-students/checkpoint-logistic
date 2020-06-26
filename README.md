@@ -1,5 +1,30 @@
-
 # Logistic Regression
+
+
+```python
+import pandas as pd
+import itertools
+import seaborn as sns
+import matplotlib.pyplot as plt
+%matplotlib inline
+import seaborn as sns
+import numpy as np
+from sklearn.linear_model import Lasso, Ridge
+import pickle
+from sklearn.metrics import roc_curve, roc_auc_score, accuracy_score
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+```
+
+### 1) Why is logistic regression typically better than linear regression for modeling a binary target/outcome?
+
+
+```python
+"""
+Your written answer here
+"""
+```
 
 <!---
 # load data
@@ -83,18 +108,31 @@ plt.savefig("visuals/cnf_matrix.png",
 
 ![cnf matrix](visuals/cnf_matrix.png)
 
-### 1. Using the confusion matrix up above, calculate precision, recall, and F-1 score.
+### 2) Using the confusion matrix above, calculate precision, recall, and F-1 score.
+Show your work, not just your final numeric answer
 
 
 ```python
-# Your code here
+# Your code here to calculate precision
 ```
 
-### 2.  What is a real life example of when you would care more about recall than precision? Make sure to include information about errors in your explanation.
+
+```python
+# Your code here to calculate recall
+```
 
 
 ```python
-# Your written answer here
+# Your code here to calculate F-1 score
+```
+
+### 3)  What is a real life example of when you would care more about recall than precision? Make sure to include information about errors in your explanation.
+
+
+```python
+"""
+Your written answer here
+"""
 ```
 
 <!---
@@ -154,34 +192,22 @@ plt.savefig("visuals/many_roc.png",
             bbox_inches="tight")
 --->
 
-### 3. Pick the best ROC curve from this graph and explain your choice. 
-
-*Note: each ROC curve represents one model, each labeled with the feature(s) inside each model*.
-
 <img src = "visuals/many_roc.png" width = "700">
 
+### 4) Which ROC curve from the above graph is the best? Explain your reasoning.
+
+Note: each ROC curve represents one model, each labeled with the feature(s) inside each model.
 
 
 ```python
-# Your written answer here
+"""
+Your written answer here
+"""
 ```
 
+### Logistic Regression Example
 
-```python
-import pandas as pd
-import itertools
-import seaborn as sns
-import matplotlib.pyplot as plt
-%matplotlib inline
-import seaborn as sns
-import numpy as np
-from sklearn.linear_model import Lasso, Ridge
-import pickle
-from sklearn.metrics import roc_curve, roc_auc_score, accuracy_score
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-```
+The following cell includes code to train and evaluate a model
 
 <!---
 # sorting by 'Purchased' and then dropping the last 130 records
@@ -192,11 +218,13 @@ pickle.dump(dropped_df, open("write_data/sample_network_data.pkl", "wb"))
 
 
 ```python
-network_df = pickle.load(open("write_data/sample_network_data.pkl", "rb"))
+# Run this cell without changes
+
+network_df = pickle.load(open('write_data/sample_network_data.pkl', 'rb'))
 
 # partion features and target 
-X = network_df.drop("Purchased", axis=1)
-y = network_df["Purchased"]
+X = network_df.drop('Purchased', axis=1)
+y = network_df['Purchased']
 
 # train test split
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=2019)
@@ -208,36 +236,34 @@ X_train = scale.transform(X_train)
 X_test = scale.transform(X_test)
 
 # build classifier
-model = LogisticRegression(C=1e5, solver="lbfgs")
-model.fit(X_train,y_train)
+model = LogisticRegression(C=1e5, solver='lbfgs')
+model.fit(X_train, y_train)
 y_test_pred = model.predict(X_test)
 
 # get the accuracy score
-print(f"The original classifier has an accuracy score of {round(accuracy_score(y_test, y_test_pred), 3)}.")
-
-# get the area under the curve from an ROC curve
-y_score = model.decision_function(X_test)
-fpr, tpr, _ = roc_curve(y_test, y_score)
-auc = round(roc_auc_score(y_test, y_score), 3)
-print(f"The original classifier has an area under the ROC curve of {auc}.")
+print(f'The classifier has an accuracy score of {round(accuracy_score(y_test, y_test_pred), 3)}.')
 ```
 
-### 4. The model above has an accuracy score that might be too good to believe. Using `y.value_counts()`, explain how `y` is affecting the accuracy score.
+### 5) The model above has an accuracy score that might be too good to believe. Using `y.value_counts()`, explain how `y` is affecting the accuracy score.
 
 
 ```python
+# Run this cell without changes
 y.value_counts()
 ```
 
 
 ```python
-# Your written answer here
+"""
+Your written answer here
+"""
 ```
 
-### 5. What methods would you use to address the issues mentioned up above in question 4? 
-
+### 6) What is one method you could use to improve your model to address the issue discovered in Question 5?
 
 
 ```python
-# Your written answer here
+"""
+Your written answer here
+"""
 ```
