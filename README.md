@@ -2,6 +2,12 @@
 
 
 ```python
+### BEGIN SOLUTION
+
+
+from test_scripts.test_class import Test
+test = Test()
+
 import pandas as pd
 import itertools
 import seaborn as sns
@@ -15,16 +21,48 @@ from sklearn.metrics import roc_curve, roc_auc_score, accuracy_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+
+test.save()
+
+
+
+### END SOLUTION
+```
+
+
+```python
+# PUT ALL WORK FOR THE ABOVE QUESTION ABOVE THIS CELL
+# THIS UNALTERABLE CELL CONTAINS HIDDEN TESTS
+
+### BEGIN HIDDEN TESTS
+
+from test_scripts.test_class import Test
+test = Test()
+
+test.run_test()
+
+
+### END HIDDEN TESTS
 ```
 
 ### 1) Why is logistic regression typically better than linear regression for modeling a binary target/outcome?
 
+=== BEGIN MARK SCHEME ===
 
-```python
 """
-Your written answer here
+Any one or more of the following:
+
+Logistic regression will never predict probabilities greater than 1 or less than 0, 
+unlike linear regression.
+
+Logistic regression often provides a closer fit to the conditional means 
+of 0/1 target values than linear regression does.
+
+Logistic regression provides for interpretations of coefficients in terms of log odds, 
+which can be relevant for some problems.
 """
-```
+
+=== END MARK SCHEME ===
 
 <!---
 # load data
@@ -113,27 +151,132 @@ Show your work, not just your final numeric answer
 
 
 ```python
-# Your code here to calculate precision
+### BEGIN SOLUTION
+
+
+from test_scripts.test_class import Test
+test = Test()
+
+precision = 30/(30+4)
+
+print('Precision: {}'.format(precision))
+
+test.save()
+
+
+
+### END SOLUTION
+```
+
+    Precision: 0.8823529411764706
+
+
+
+```python
+# PUT ALL WORK FOR THE ABOVE QUESTION ABOVE THIS CELL
+# THIS UNALTERABLE CELL CONTAINS HIDDEN TESTS
+
+### BEGIN HIDDEN TESTS
+
+from test_scripts.test_class import Test
+test = Test()
+
+test.run_test()
+
+
+### END HIDDEN TESTS
 ```
 
 
 ```python
-# Your code here to calculate recall
+### BEGIN SOLUTION
+
+
+from test_scripts.test_class import Test
+test = Test()
+
+recall = 30 / (30 + 12)
+
+print('Recall: {}'.format(recall))
+
+test.save()
+
+
+
+### END SOLUTION
+```
+
+    Recall: 0.7142857142857143
+
+
+
+```python
+# PUT ALL WORK FOR THE ABOVE QUESTION ABOVE THIS CELL
+# THIS UNALTERABLE CELL CONTAINS HIDDEN TESTS
+
+### BEGIN HIDDEN TESTS
+
+from test_scripts.test_class import Test
+test = Test()
+
+test.run_test()
+
+
+### END HIDDEN TESTS
 ```
 
 
 ```python
-# Your code here to calculate F-1 score
+### BEGIN SOLUTION
+
+
+from test_scripts.test_class import Test
+test = Test()
+
+F1 = 2 * (precision * recall) / (precision + recall)
+
+print('F1: {}'.format(F1))
+
+test.save()
+
+
+
+### END SOLUTION
+```
+
+    F1: 0.7894736842105262
+
+
+
+```python
+# PUT ALL WORK FOR THE ABOVE QUESTION ABOVE THIS CELL
+# THIS UNALTERABLE CELL CONTAINS HIDDEN TESTS
+
+### BEGIN HIDDEN TESTS
+
+from test_scripts.test_class import Test
+test = Test()
+
+test.run_test()
+
+
+### END HIDDEN TESTS
 ```
 
 ### 3)  What is a real life example of when you would care more about recall than precision? Make sure to include information about errors in your explanation.
 
+=== BEGIN MARK SCHEME ===
 
-```python
 """
-Your written answer here
+We would care more about recall than precision in cases where a Type II error
+(a False Negative) would have serious consequences. An example of this would be
+a medical test that determines if someone has a serious disease.
+
+A higher recall would mean that we would have a higher chance of identifying all
+people who ACTUALLY had the serious disease.
 """
-```
+
+=== END MARK SCHEME ===
 
 <!---
 # save preprocessed train/test split objects
@@ -198,12 +341,16 @@ plt.savefig("visuals/many_roc.png",
 
 Note: each ROC curve represents one model, each labeled with the feature(s) inside each model.
 
+=== BEGIN MARK SCHEME ===
 
-```python
 """
-Your written answer here
+The best ROC curve in this graph is for the one that contains all features 
+(the pink one). This is because it has the largest area under the curve. 
+The ROC curve is created by obtaining the ratio of the True Positive Rate to 
+the False Positive Rate over all thresholds of a classification model.
 """
-```
+
+=== END MARK SCHEME ===
 
 ### Logistic Regression Example
 
@@ -252,18 +399,34 @@ print(f'The classifier has an accuracy score of {round(accuracy_score(y_test, y_
 y.value_counts()
 ```
 
+=== BEGIN MARK SCHEME ===
 
-```python
 """
-Your written answer here
+y.value_counts() indicates that we have a class imbalance. When we have class 
+imbalance our model will predict the most common class preferentially and is not 
+penalized for doing so in the accuracy score, because it is still getting the 
+right answer most of the time. 
 """
-```
+
+=== END MARK SCHEME ===
 
 ### 6) What is one method you could use to improve your model to address the issue discovered in Question 5?
 
+=== BEGIN MARK SCHEME ===
 
-```python
+
 """
-Your written answer here
+Any one of these is an acceptable answer : 
+
+Use SMOTE to generate additional synthetic data points for the minority class to create class balance.
+
+Oversample (with replacement) from the minority class to create class balance.
+
+Use class weights to place more emphasis on the minority class when fitting models.
+
+Use precision or recall metrics to inform model decisions/hyperparameter tuning.
+
+NOTE: Undersampling is not a valid answer because there are so few positive cases
 """
-```
+
+=== END MARK SCHEME ===
